@@ -21,11 +21,15 @@ const LoginForm = ({ setIsLoggedIn }) => {
 
     return (
         <form onSubmit={handleSubmit}>
-            {error}
-            <label for='username'>Username</label>
-            <input type="text" name='username' id='username' value={username} onChange={(e) => { setUsername(e.target.value) }} required />
-            <label for='password'>Password</label>
+            {error.length > 0 && <p>{error}<br />
+                <br /></p>}
+
+            <label htmlFor='username'>Username:</label>
+            <input type="text" name='username' id='username' value={username} onChange={(e) => { setUsername(e.target.value) }} required /><br />
+            <label htmlFor='password'>Password:</label>
             <input type="password" name='password' id='password' value={password} onChange={(e) => { setPassword(e.target.value) }} required />
+            <br />
+            <br />
             <button type="submit">Submit</button>
         </form>
     )
